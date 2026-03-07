@@ -1,0 +1,46 @@
+# Campus Bulletin Board App
+
+## Project Description
+Campus Bulletin Board App is a social-based web application that allows students to share announcements and campus-related information. The app follows the CRUD model, allowing users to create, read, update, and delete posts.
+
+Students can use the platform to share study groups, housing notices, events, clubs, and general campus announcements.
+
+## Objective
+The objective of this project is to practice the Software Development Life Cycle (SDLC), Agile methodology, version control with GitHub, and documentation.
+
+## Technology Stack
+- Python
+- Flask
+- SQLite
+- HTML/CSS
+- GitHub
+
+## Agile Planning
+
+### Sprint 1
+- Create GitHub repository
+- Set up development environment
+- Write project description
+- Create README file
+- Define project scope
+
+### Sprint 2
+- Design UI prototype
+- Define user stories
+- Create home page
+- Start user management
+
+### Sprint 3
+- Implement create and view posts
+- Connect database
+
+### Sprint 4
+- Implement edit and delete posts
+- Testing and debugging
+- Final documentation
+
+## CRUD Features
+- Create announcements
+- Read announcements
+- Update announcements
+- Delete announcements
