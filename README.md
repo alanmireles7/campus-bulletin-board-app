@@ -3,7 +3,7 @@
 ## Project Description
 Campus Bulletin Board App is a social-based web application that allows students to share announcements and campus-related information. The app follows the CRUD model, allowing users to create, read, update, and delete posts.
 
-Students can use the platform to share study groups, housing notices, events, clubs, and general campus announcements.
+Students can use the platform to share study groups, housing notices, events, clubs, campus activities, and general campus announcements.
 
 ## Team Members
 - Alan Mireles
