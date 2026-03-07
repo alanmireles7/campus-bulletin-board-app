@@ -5,6 +5,11 @@ Campus Bulletin Board App is a social-based web application that allows students
 
 Students can use the platform to share study groups, housing notices, events, clubs, and general campus announcements.
 
+## Team Members
+- Alan Mireles
+- Demetrio Villarreal
+- Nedved Olivarez
+
 ## Objective
 The objective of this project is to practice the Software Development Life Cycle (SDLC), Agile methodology, version control with GitHub, and documentation.
 
