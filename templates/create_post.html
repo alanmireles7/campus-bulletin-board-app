@@ -4,22 +4,17 @@
     <title>Create Post</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-    <!-- HEADER -->
     <div class="header">
         <div class="header-content">
-            <img src="{{ url_for('static', filename='utrgv_logo.png') }}" class="logo">
+            <img src="{{ url_for('static', filename='utrgv_logo.png') }}" class="logo" alt="UTRGV Logo">
             <h1>Create a New Post</h1>
         </div>
     </div>
 
-    <!-- MAIN -->
     <div class="container">
-
         <div class="card">
-
             <form method="POST" class="form">
 
                 <div class="form-group">
@@ -28,19 +23,31 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" required>
+                        <option value="Study Groups">Study Groups</option>
+                        <option value="Events">Events</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Clubs">Clubs</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label>Content</label>
                     <textarea name="content" required></textarea>
                 </div>
 
                 <button type="submit" class="btn">Submit</button>
-
             </form>
 
             <a href="/" class="back-link">← Back</a>
-
         </div>
-
     </div>
+
+    <footer class="footer">
+        Made for UTRGV students • Spring 2026
+    </footer>
 
 </body>
 </html>

@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Campus Bulletin Board</title>
+    <title>UTRGV Campus Bulletin Board</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-    <!-- HEADER -->
     <div class="header">
         <div class="header-content">
-            <img src="{{ url_for('static', filename='utrgv_logo.png') }}" class="logo">
+            <img src="{{ url_for('static', filename='utrgv_logo.png') }}" class="logo" alt="UTRGV Logo">
             <h1>UTRGV Campus Bulletin Board</h1>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="container">
 
-        <div class="card">
+        <div class="card welcome-card">
             <h2>Welcome to the Campus Bulletin Board App!</h2>
+            <p class="welcome-text">
+                Stay connected with events, housing, clubs, and study groups around campus.
+            </p>
             <a href="/create" class="btn">Create Post</a>
         </div>
 
-        <h2 class="section-title">Posts</h2>
+        <h2 class="section-title">Recent Posts</h2>
 
         {% if posts %}
             <div class="posts">
                 {% for post in posts %}
                     <div class="post-card">
+                        <div class="post-top">
+                            <div class="post-category">
+                                <span class="post-icon">{{ post.icon }}</span>
+                                <span class="category-badge">{{ post.category }}</span>
+                            </div>
+                            <a href="/delete/{{ loop.index0 }}" class="delete-btn">Delete</a>
+                        </div>
+
                         <h3>{{ post.title }}</h3>
                         <p>{{ post.content }}</p>
+                        <p class="timestamp">Posted on {{ post.timestamp }}</p>
                     </div>
                 {% endfor %}
             </div>
@@ -39,6 +48,10 @@
         {% endif %}
 
     </div>
+
+    <footer class="footer">
+        Made for UTRGV students • Spring 2026
+    </footer>
 
 </body>
 </html>
