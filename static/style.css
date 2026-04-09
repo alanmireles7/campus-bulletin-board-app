@@ -1,0 +1,141 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* HEADER */
+.header {
+    background-color: #f47c20;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.logo {
+    height: 50px;
+}
+
+.header-content h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* CARD (used everywhere) */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f47c20;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #d9661b;
+}
+
+/* SECTION TITLE */
+.section-title {
+    margin-top: 30px;
+}
+
+/* POSTS */
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* POST CARD */
+.post-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+    transform: scale(1.02);
+}
+
+.post-card h3 {
+    margin: 0 0 10px 0;
+}
+
+.no-posts {
+    color: gray;
+}
+
+/* FORM */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* FORM GROUP */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* INPUTS */
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* BACK LINK */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
