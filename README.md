@@ -85,3 +85,43 @@ UTRGV students often rely on multiple disconnected platforms such as social medi
 - Git / GitHub
 - VS Code
 
+## User Stories
+
+- As a UTRGV student, I want to create a post so I can share information with others.
+- As a UTRGV student, I want to view posts so I can stay updated on campus activities.
+- As a UTRGV student, I want to delete my post so I can remove outdated information.
+- As a UTRGV student, I want to categorize my post so others can easily find it.
+
+## Prototype / Home View
+
+The current CampusNOW prototype includes a functioning home view and a create-post page.
+
+### Home View
+The home view displays:
+- CampusNOW branding
+- UTRGV logo
+- welcome section
+- recent posts
+- category labels
+- timestamps
+- delete button
+
+### Create Post Page
+The create-post page allows users to:
+- enter a post title
+- select a category
+- enter post content
+- submit a new post
+
+## User Management System
+
+The CampusNOW application includes a planned user management system for UTRGV students.
+
+### Planned User Management Features
+- User login and authentication
+- User-specific post ownership
+- Ability for users to manage their own posts
+- Future support for user registration
+
+At this stage, the prototype focuses on the home view and post interaction features, while user management is defined as the next development step.
+
