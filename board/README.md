@@ -1,46 +1,162 @@
 # CampusNOW - Django Version
 
-## About This Branch
-This branch contains a Django implementation of CampusNOW, built as part of
-the Software Engineering final project for UTRGV Spring 2026.
-The `django-nedved` branch explores Django as an alternative to the team's
-original Flask implementation.
+## Project Description
+CampusNOW is a social-based web application that allows students to share
+announcements and campus-related information. The app follows the CRUD model,
+allowing users to create, read, update, and delete posts.
+
+Students can use the platform to share study groups, housing notices, events,
+clubs, campus activities, and general campus announcements.
 
 ## Team Members
 - Alan Mireles
 - Demetrio Villarreal
 - Nedved Olivarez
 
-## What's in This Branch
-- Full Django project setup with virtual environment
-- Post model with database migrations
-- Complete CRUD: Create, Read, Update, Delete posts
-- Django admin panel integration
-- URL routing and views
-- HTML templates with UTRGV orange branding
+## Objective
+The objective of this project is to practice the Software Development Life
+Cycle (SDLC), Agile methodology, version control with GitHub, and documentation.
+
+---
+
+## Project Overview
+CampusNOW is a web-based bulletin board application designed specifically for
+UTRGV students. The goal of the platform is to provide a centralized digital
+space where students can post and view important campus-related information
+such as study groups, housing opportunities, events, and student organizations.
+
+## Problem Statement
+UTRGV students often rely on multiple disconnected platforms such as social
+media, group chats, or word of mouth to find information about events, housing,
+and study groups. CampusNOW solves this problem by offering one centralized
+platform where students can quickly create and view campus posts.
+
+## Target Users
+- UTRGV students
+- Student organizations
+- Study groups
+- Students seeking housing or campus resources
+
+---
 
 ## Tech Stack
 - Python
 - Django 6.0.5
 - SQLite (via Django ORM)
 - HTML/CSS
+- Git / GitHub
 
-## How to Run
-1. Navigate to the project folder
-2. Activate virtual environment:
-   - Windows: `virt\Scripts\activate`
-3. Install dependencies: `pip install django`
-4. Run migrations: `python manage.py migrate`
-5. Start server: `python manage.py runserver`
-6. Open: `http://localhost:8000`
+## Agile Planning
+
+### Sprint 1
+- Create GitHub repository
+- Set up development environment
+- Write project description
+- Create README file
+- Define project scope
+
+### Sprint 2
+- Design UI prototype
+- Define user stories
+- Create home page
+- Start user management
+
+### Sprint 3
+- Implement create and view posts
+- Connect database
+
+### Sprint 4
+- Implement edit and delete posts
+- User authentication system
+- Testing and debugging
+- Final documentation
+
+---
+
+## Functional Requirements
+- View all campus posts on the homepage
+- Create new posts (requires login)
+- Categorize posts (Study Groups, Events, Housing, Clubs, General)
+- View timestamps and post author
+- Edit your own posts (requires login)
+- Delete your own posts (requires login)
+- User registration
+- User login and logout
+- Posts are tied to the user who created them
+
+## Non-Functional Requirements
+- Easy to use interface
+- Fast loading
+- Modern design
+- Browser compatibility
+
+---
+
+## User Stories
+- As a UTRGV student, I want to create a post so I can share information with others.
+- As a UTRGV student, I want to view posts so I can stay updated on campus activities.
+- As a UTRGV student, I want to edit my post so I can correct or update information.
+- As a UTRGV student, I want to delete my post so I can remove outdated information.
+- As a UTRGV student, I want to categorize my post so others can easily find it.
+- As a UTRGV student, I want to register an account so my posts are tied to my identity.
+- As a UTRGV student, I want to login so I can manage my own posts securely.
+
+---
 
 ## CRUD Features
-- **Create** → Fill out form to post a campus announcement
-- **Read** → Homepage displays all posts newest first
-- **Update** → Edit any post's title, category, and content
-- **Delete** → Remove a post with confirmation prompt
+- **Create** → Fill out form to post a campus announcement (login required)
+- **Read** → Homepage displays all posts newest first, visible to everyone
+- **Update** → Edit your own post's title, category, and content (login required)
+- **Delete** → Remove your own post with confirmation prompt (login required)
+
+---
+
+## User Management System
+CampusNOW includes a fully working user management system.
+
+### Implemented Features
+- User registration with password validation
+- User login and logout
+- Session-based authentication (Django built-in)
+- Post ownership — users can only edit/delete their own posts
+- Non-logged-in users are redirected to login if they try to create a post
+- Each post displays the author's username
+
+---
+
+## Home View
+The home view displays:
+- UTRGV logo and CampusNOW branding
+- Login/Register buttons when logged out
+- Username and Logout button when logged in
+- Welcome section with Create Post button
+- Recent posts with category badges, author, and timestamps
+- Edit/Delete buttons only on posts you own
+
+## Create Post Page
+The create post page allows users to:
+- Enter a post title
+- Select a category
+- Enter post content
+- Submit a new post
+
+---
 
 ## Admin Panel
-Access Django's built-in admin at `http://localhost:8000/admin`
+Django's built-in admin panel is available at `http://localhost:8000/admin`
+- Allows full database management without touching code
 - Username: admin
 - Password: password
+
+---
+
+## How to Run
+1. Clone the repository and switch to the `django-nedved` branch
+2. Navigate to the campusnow folder
+3. Activate virtual environment:
+   - Windows: `virt\Scripts\activate`
+   - macOS: `source virt/bin/activate`
+4. Install dependencies: `pip install django`
+5. Run migrations: `python manage.py migrate`
+6. Start server: `python manage.py runserver`
+7. Open: `http://localhost:8000`
