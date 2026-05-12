@@ -75,14 +75,23 @@ platform where students can quickly create and view campus posts.
 
 ## Functional Requirements
 - View all campus posts on the homepage
+- Filter posts by category (Study Groups, Events, Housing, Clubs, General)
 - Create new posts (requires login)
-- Categorize posts (Study Groups, Events, Housing, Clubs, General)
-- View timestamps and post author
+- Categorize posts when creating
+- View timestamps and post author on each post
 - Edit your own posts (requires login)
 - Delete your own posts (requires login)
-- User registration
+- User registration with password validation
 - User login and logout
 - Posts are tied to the user who created them
+- React to posts with emojis 👍❤️😂😮😢 (requires login)
+- Reactions toggle on/off without page refresh
+- Comment on posts (requires login)
+- Delete your own comments (requires login)
+- Comments shown in collapsible dropdown per post
+- Page stays on current post after commenting, editing, or deleting
+
+---
 
 ## Non-Functional Requirements
 - Easy to use interface
@@ -95,11 +104,15 @@ platform where students can quickly create and view campus posts.
 ## User Stories
 - As a UTRGV student, I want to create a post so I can share information with others.
 - As a UTRGV student, I want to view posts so I can stay updated on campus activities.
+- As a UTRGV student, I want to filter posts by category so I can find relevant content faster.
 - As a UTRGV student, I want to edit my post so I can correct or update information.
 - As a UTRGV student, I want to delete my post so I can remove outdated information.
 - As a UTRGV student, I want to categorize my post so others can easily find it.
 - As a UTRGV student, I want to register an account so my posts are tied to my identity.
 - As a UTRGV student, I want to login so I can manage my own posts securely.
+- As a UTRGV student, I want to react to posts so I can engage with campus content.
+- As a UTRGV student, I want to comment on posts so I can start conversations.
+- As a UTRGV student, I want to delete my comments so I can remove things I posted.
 
 ---
 
@@ -119,9 +132,16 @@ CampusNOW includes a fully working user management system.
 - User login and logout
 - Session-based authentication (Django built-in)
 - Post ownership — users can only edit/delete their own posts
+- Comment ownership — users can only delete their own comments
 - Non-logged-in users are redirected to login if they try to create a post
-- Each post displays the author's username
+- Each post displays the author's username and timestamp
+- Reactions and comments require login
 
+### Social Features
+- Emoji reactions (👍❤️😂😮😢) with toggle on/off — no page refresh
+- Collapsible comment sections per post
+- Category filter bar to browse posts by topic
+- Page anchors keep user in place after actions
 ---
 
 ## Home View
