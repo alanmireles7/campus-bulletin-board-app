@@ -2,11 +2,39 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .models import Post
+from .models import Post, Comment, Reaction
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def index(request):
+    category = request.GET.get('category', '')
     posts = Post.objects.all().order_by('-timestamp')
-    return render(request, 'board/index.html', {'posts': posts})
+    if category:
+        posts = posts.filter(category=category)
+    emojis = Reaction.EMOJI_CHOICES
+
+    for post in posts:
+        post.reaction_info = []
+        for emoji, label in emojis:
+            count = post.reactions.filter(emoji=emoji).count()
+            reacted = False
+            if request.user.is_authenticated:
+                reacted = post.reactions.filter(emoji=emoji, author=request.user).exists()
+            post.reaction_info.append({
+                'emoji': emoji,
+                'count': count,
+                'reacted': reacted,
+            })
+
+    categories = [c[0] for c in Post.CATEGORY_CHOICES]
+    return render(request, 'board/index.html', {
+        'posts': posts,
+        'emojis': emojis,
+        'categories': categories,
+        'selected_category': category,
+    })
+
+    return render(request, 'board/index.html', {'posts': posts, 'emojis': emojis})
 
 def register(request):
     if request.method == 'POST':
@@ -53,7 +81,7 @@ def edit(request, id):
         post.content = request.POST['content']
         post.category = request.POST['category']
         post.save()
-        return redirect('index')
+        return HttpResponseRedirect(reverse('index') + f'#post-{id}')
     return render(request, 'board/edit.html', {'post': post})
 
 @login_required
@@ -61,3 +89,33 @@ def delete(request, id):
     post = get_object_or_404(Post, id=id, author=request.user)
     post.delete()
     return redirect('index')
+
+@login_required
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        content = request.POST['content']
+        if content.strip():
+            Comment.objects.create(post=post, author=request.user, content=content)
+    return HttpResponseRedirect(reverse('index') + f'#post-{post_id}')
+
+@login_required
+def delete_comment(request, id):
+    comment = get_object_or_404(Comment, id=id, author=request.user)
+    post_id = comment.post.id
+    comment.delete()
+    return HttpResponseRedirect(reverse('index') + f'#post-{post_id}')
+
+@login_required
+def react(request, post_id, emoji):
+    from django.http import JsonResponse
+    post = get_object_or_404(Post, id=post_id)
+    existing = Reaction.objects.filter(post=post, author=request.user, emoji=emoji)
+    if existing.exists():
+        existing.delete()
+        reacted = False
+    else:
+        Reaction.objects.create(post=post, author=request.user, emoji=emoji)
+        reacted = True
+    count = post.reactions.filter(emoji=emoji).count()
+    return JsonResponse({'reacted': reacted, 'count': count})
