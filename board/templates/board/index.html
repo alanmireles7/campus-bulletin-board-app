@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,11 @@
     </style>
 </head>
 <body>
-    <div class="header"><h1>🏫 CampusNOW</h1></div>
+    <div class="header">
+        <img src="{% static 'UTRGV_Wordmark_Initials.png' %}" 
+            style="height:45px; margin-right:12px;" alt="UTRGV">
+        <h1>CampusNOW</h1>
+    </div>
     <div class="container">
         <div class="welcome">
             <h2>Welcome to CampusNOW!</h2>
