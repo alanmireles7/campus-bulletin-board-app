@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - CampusNOW</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+        .header { background: #f47c20; padding: 15px; display: flex; align-items: center; justify-content: center; gap: 12px; color: white; }
+        .header img { height: 45px; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .container { max-width: 500px; margin: 60px auto; padding: 20px; }
+        .card { background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        .card h2 { margin-top: 0; }
+        .form-group { display: flex; flex-direction: column; margin-bottom: 16px; }
+        label { font-weight: bold; margin-bottom: 6px; }
+        input { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
+        input:focus { outline: none; border-color: #f47c20; }
+        .btn { width: 100%; padding: 12px; background: #f47c20; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-top: 8px; }
+        .btn:hover { background: #d9661b; }
+        .link { text-align: center; margin-top: 16px; }
+        .link a { color: #f47c20; text-decoration: none; font-weight: bold; }
+        .errors { background: #fdecea; color: #c0392b; padding: 10px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+        .help-text { font-size: 12px; color: #888; margin-top: 4px; }
+        .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'UTRGV_Wordmark_Initials.png' %}" alt="UTRGV">
+        <h1>CampusNOW</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Create Account 👤</h2>
+            {% if form.errors %}
+                <div class="errors">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            {{ error }}<br>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password1" required>
+                    <span class="help-text">At least 8 characters</span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password2" required>
+                </div>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <div class="link">
+                Already have an account? <a href="{% url 'login' %}">Login here</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">CampusNOW • Made for UTRGV students • Spring 2026</div>
+</body>
+</html>
