@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - CampusNOW</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='utrgv_logo.png') }}" class="logo" alt="UTRGV Logo">
+            <h1>Login to CampusNOW</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <form method="POST" class="form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            <a href="{{ url_for('register') }}" class="back-link">Need an account? Register here</a>
+            <br>
+            <a href="{{ url_for('index') }}" class="back-link">← Back</a>
+        </div>
+    </div>
+
+</body>
+</html>
