@@ -171,12 +171,38 @@ Django's built-in admin panel is available at `http://localhost:8000/admin`
 ---
 
 ## How to Run
-1. Clone the repository and switch to the `django-nedved` branch
-2. Navigate to the campusnow folder
-3. Activate virtual environment:
-   - Windows: `virt\Scripts\activate`
-   - macOS: `source virt/bin/activate`
-4. Install dependencies: `pip install django`
-5. Run migrations: `python manage.py migrate`
-6. Start server: `python manage.py runserver`
-7. Open: `http://localhost:8000`
+1. Clone the repository
+
+2. Navigate into the project folder
+
+3. Make sure you are on the `main` branch
+
+4. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Create migrations for the `board` app:
+
+   ```bash
+   python manage.py makemigrations board
+   ```
+
+6. Apply migrations:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+7. Start the Django server:
+
+   ```bash
+   python manage.py runserver
+   ```
+
+8. Open the app in your browser:
+
+   ```text
+   http://127.0.0.1:8000/
+   ```
