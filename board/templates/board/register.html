@@ -22,6 +22,26 @@
         .errors { background: #fdecea; color: #c0392b; padding: 10px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
         .help-text { font-size: 12px; color: #888; margin-top: 4px; }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper input {
+            width: 100%;
+            padding-right: 45px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -49,12 +69,18 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password1" required>
+                    <div class="password-wrapper">
+                        <input id="password1" type="password" name="password1" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('password1', this)">👁️</button>
+                    </div>
                     <span class="help-text">At least 8 characters</span>
                 </div>
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" name="password2" required>
+                    <div class="password-wrapper">
+                        <input id="password2" type="password" name="password2" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('password2', this)">👁️</button>
+                    </div>
                 </div>
                 <button type="submit" class="btn">Create Account</button>
             </form>
@@ -64,5 +90,19 @@
         </div>
     </div>
     <div class="footer">CampusNOW • Made for UTRGV students • Spring 2026</div>
+
+    <script>
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+
+            if (input.type === "password") {
+                input.type = "text";
+                button.textContent = "🙈";
+            } else {
+                input.type = "password";
+                button.textContent = "👁️";
+            }
+        }
+    </script>
 </body>
 </html>
